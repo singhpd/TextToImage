@@ -15,6 +15,12 @@ const client = new OpenAI({
     apiKey: process.env.NEBIUS_API_KEY,
 });
 
+
+app.get('/',(req,res)=>{
+    res.status(200).json("Working");
+})
+
+
 app.post('/generatex', async (req, res) => {
     const {  prompt    } = req.body;
     if (!prompt) return res.status(400).json({ error: 'Prompt is required' });
